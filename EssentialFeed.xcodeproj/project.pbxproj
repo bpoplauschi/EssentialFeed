@@ -11,6 +11,7 @@
 		434E30AF25963BE80091BC63 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30AE25963BE80091BC63 /* EssentialFeedTests.swift */; };
 		434E30B125963BE80091BC63 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 434E30A325963BE80091BC63 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		434E30BE25963C360091BC63 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30BD25963C360091BC63 /* FeedItem.swift */; };
+		434E30C325963CB90091BC63 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30C225963CB90091BC63 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		434E30AE25963BE80091BC63 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		434E30B025963BE80091BC63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		434E30BD25963C360091BC63 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		434E30C225963CB90091BC63 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		434E30A225963BE80091BC63 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				434E30C125963CA90091BC63 /* Loader */,
 				434E30BC25963C240091BC63 /* Models */,
 				434E30A325963BE80091BC63 /* EssentialFeed.h */,
 				434E30A425963BE80091BC63 /* Info.plist */,
@@ -95,6 +98,14 @@
 				434E30BD25963C360091BC63 /* FeedItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		434E30C125963CA90091BC63 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				434E30C225963CB90091BC63 /* FeedLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434E30C325963CB90091BC63 /* FeedLoader.swift in Sources */,
 				434E30BE25963C360091BC63 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
