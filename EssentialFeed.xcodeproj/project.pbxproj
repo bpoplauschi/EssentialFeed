@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		434E30AA25963BE80091BC63 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434E30A025963BE80091BC63 /* EssentialFeed.framework */; };
-		434E30AF25963BE80091BC63 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30AE25963BE80091BC63 /* EssentialFeedTests.swift */; };
 		434E30B125963BE80091BC63 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 434E30A325963BE80091BC63 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		434E30BE25963C360091BC63 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30BD25963C360091BC63 /* FeedItem.swift */; };
 		434E30C325963CB90091BC63 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30C225963CB90091BC63 /* FeedLoader.swift */; };
@@ -29,7 +28,6 @@
 		434E30A325963BE80091BC63 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		434E30A425963BE80091BC63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		434E30A925963BE80091BC63 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		434E30AE25963BE80091BC63 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		434E30B025963BE80091BC63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		434E30BD25963C360091BC63 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		434E30C225963CB90091BC63 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 		434E30AD25963BE80091BC63 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				434E30AE25963BE80091BC63 /* EssentialFeedTests.swift */,
 				434E30B025963BE80091BC63 /* Info.plist */,
 			);
 			path = EssentialFeedTests;
@@ -226,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				434E30AF25963BE80091BC63 /* EssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
