@@ -102,8 +102,17 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     typealias JSON = [String: Any]
     
-    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: JSON) {
-        let item = FeedItem(id: id, description: description, location: location, imageURL: imageURL)
+    private func makeItem(
+        id: UUID,
+        description: String? = nil,
+        location: String? = nil,
+        imageURL: URL
+    ) -> (model: FeedItem, json: JSON) {
+        let item = FeedItem(
+            id: id,
+            description: description,
+            location: location,
+            imageURL: imageURL)
         let json = [
             "id": id.uuidString,
             "description": description,
@@ -118,7 +127,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    private func expect(_ sut: RemoteFeedLoader, toCompleteWith result: RemoteFeedLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(
+        _ sut: RemoteFeedLoader,
+        toCompleteWith result: RemoteFeedLoader.Result,
+        when action: () -> Void,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
         var capturedResults = [RemoteFeedLoader.Result]()
         sut.load { capturedResults.append($0) }
         
