@@ -1,5 +1,7 @@
 # Essential Feed
 
+![](replace with CI badge)
+
 Demo project created per taking the Essential Developer Academy course.
 
 # Use Cases
