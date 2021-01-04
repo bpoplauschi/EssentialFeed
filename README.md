@@ -1,5 +1,7 @@
 # Essential Feed
 
+![CI](https://github.com/bpoplauschi/EssentialFeed/workflows/CI/badge.svg)
+
 Demo project created per taking the Essential Developer Academy course.
 
 # Use Cases
