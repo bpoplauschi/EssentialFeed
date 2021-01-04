@@ -1,6 +1,6 @@
 # Essential Feed
 
-![](replace with CI badge)
+![CI](https://github.com/bpoplauschi/EssentialFeed/workflows/CI/badge.svg)
 
 Demo project created per taking the Essential Developer Academy course.
 
