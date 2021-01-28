@@ -14,11 +14,11 @@ Demo project created per taking the Essential Developer Academy course.
 
 ### Primary course (happy path):
 
-1. Execute "Load Feed Items" command with above data.
+1. Execute "Load Image Feed" command with above data.
 2. System downloads data from the URL.
 3. System validates downloaded data.
-4. System creates feed items from valid data.
-5. System delivers feed items.
+4. System creates image feed from valid data.
+5. System delivers image feed.
 
 ### Invalid data – error course (sad path):
 
@@ -36,11 +36,11 @@ Demo project created per taking the Essential Developer Academy course.
 
 ### Primary course (happy path):
 
-1. Execute "Load Feed Items" command with above data.
+1. Execute "Load Image Feed" command with above data.
 2. System fetches feed data from cache.
 3. System validates cache is less than seven days old.
-4. System creates feed items from cached data.
-5. System delivers feed items.
+4. System creates image feed from cached data.
+5. System delivers image feed.
 
 ### Error course (sad path):
 
@@ -49,11 +49,11 @@ Demo project created per taking the Essential Developer Academy course.
 ### Expired cache course (sad path):
 
 1. System deletes the cache
-2. System delivers no feed items.
+2. System delivers no feed images.
 
 ### Empty cache course (sad path):
 
-1. System delivers no feed items.
+1. System delivers no feed images.
 
 ------
 
@@ -61,13 +61,13 @@ Demo project created per taking the Essential Developer Academy course.
 
 ### Data (Input):
 
-- Feed items
+- Image Feed
 
 ### Primary course (happy path):
 
-1. Execute "Save Feed Items" command with above data.
+1. Execute "Save Image Feed" command with above data.
 2. System deletes old cache data.
-3. System encodes feed items.
+3. System encodes image feed.
 4. System timestamps the new cache.
 5. System saves new cache data.
 6. System delivers a success message.
@@ -84,18 +84,22 @@ Demo project created per taking the Essential Developer Academy course.
 
 ```mermaid
 graph TD
-  show(Show feed screen)
-  fetch(Fetch new items)
+  show(Show image feed screen)
+  fetch(Fetch image feed from remote)
   success{Success?}
-  cache(Cache new items)
-  load(Load items from cache)
-  update(Update feed screen)
+  cache(Cache image feed)
+  display(Display image feed)
+  load(Load image feed from cache)
+  success2{Success?}
+  displayError(Display error)
   show-->fetch
   fetch-->success
   success-->|Yes|cache
   success-->|No|load
-  cache-->update
-  load-->update
+  cache-->display
+  load-->success2
+  success2-->|Yes|display
+  success2-->|No|displayError
 ```
 
 # Architecture
@@ -103,15 +107,28 @@ graph TD
 ```mermaid
 classDiagram
 
-class FeedLoader {
-  <<interface>>
-}
+class FeedLoader { <<interface>> }
+class FeedStore { <<interface>> }
 
+FeedImage <-- FeedLoader
 RemoteFeedLoader ..|> FeedLoader
+RemoteFeedLoader --> FeedImage
+FeedItemsMapper <-- RemoteFeedLoader
+RemoteFeedItem <-- FeedItemsMapper
+RemoteFeedItem <-- RemoteFeedLoader
+RemoteFeedLoader --> HTTPClient
+URLSessionHTTPClient ..|> HTTPClient
+AnyHTTPClientImplementation ..|> HTTPClient
+URLSessionHTTPClient --> Feed_Backend
 RemoteWithLocalFallbackFeedLoader ..|> FeedLoader
 RemoteWithLocalFallbackFeedLoader --> RemoteFeedLoader
 RemoteWithLocalFallbackFeedLoader --> LocalFeedLoader
 LocalFeedLoader ..|> FeedLoader
+LocalFeedLoader --> FeedImage
+LocalFeedLoader --> LocalFeedImage
+LocalFeedLoader --> FeedStore
+FeedStore --> LocalFeedImage
+AnyFeedStoreImplementation --> FeedStore
 FeedLoader <-- FeedViewController
 FeedViewController --|> UIViewController
 Feed_Assembler_Build_Factory --> RemoteWithLocalFallbackFeedLoader
