@@ -8,7 +8,7 @@
 import EssentialFeed
 import XCTest
 
-final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
         
@@ -16,7 +16,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     }
     
     func test_load_requestsDataFromURL() {
-        let url = URL(string: "http://a-given-url.com")!
+        let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -25,7 +25,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     }
     
     func test_loadTwice_requestsDataFromURLTwice() {
-        let url = URL(string: "http://a-given-url.com")!
+        let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
         
         sut.load { _ in }
@@ -38,7 +38,8 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: failure(.connectivity), when: {
-            client.complete(with: NSError(domain: "Test", code: 0))
+            let clientError = NSError(domain: "Test", code: 0)
+            client.complete(with: clientError)
         })
     }
     
@@ -46,23 +47,24 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         let samples = [199, 201, 300, 400, 404, 500]
-        samples.enumerated().forEach({ index, code in
+        samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: failure(.invalidData), when: {
-                let jsonData = makeItemsJSON([])
-                client.complete(withStatusCode: code, data: jsonData, at: index)
+                let json = makeItemsJSON([])
+                client.complete(withStatusCode: code, data: json, at: index)
             })
-        })
+        }
     }
     
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: failure(.invalidData), when: {
-            client.complete(withStatusCode: 200, data: Data("invalid json".utf8))
+            let invalidJSON = Data(bytes: "invalid json".utf8)
+            client.complete(withStatusCode: 200, data: invalidJSON)
         })
     }
     
-    func test_load_deliversNoItemsOn200HTTPResponseWithAnEmptyJSONList() {
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .success([]), when: {
@@ -88,13 +90,13 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         let items = [item1.model, item2.model]
         
         expect(sut, toCompleteWith: .success(items), when: {
-            let jsonData = makeItemsJSON([item1.json, item2.json])
-            client.complete(withStatusCode: 200, data: jsonData)
+            let json = makeItemsJSON([item1.json, item2.json])
+            client.complete(withStatusCode: 200, data: json)
         })
     }
     
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let url = URL(string: "http://a-url.com")!
+        let url = URL(string: "http://any-url.com")!
         let client = HTTPClientSpy()
         var sut: RemoteFeedLoader? = RemoteFeedLoader(url: url, client: client)
         
@@ -116,9 +118,9 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     ) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
-        trackForMemoryLeaks(sut)
-        trackForMemoryLeaks(client)
-        return (sut: sut, client: client)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(client, file: file, line: line)
+        return (sut, client)
     }
     
     private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
@@ -144,7 +146,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
             "location": location,
             "image": imageURL.absoluteString
         ].compactMapValues { $0 }
-        return (model:item, json: json)
+        return (item, json)
     }
     
     private func makeItemsJSON(_ items: [JSON]) -> Data {
@@ -178,11 +180,11 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     }
     
     private final class HTTPClientSpy: HTTPClient {
-        var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
+        private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
         var requestedURLs: [URL] { messages.map { $0.url } }
         
         func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-            messages.append((url: url, completion: completion))
+            messages.append((url, completion))
         }
         
         func complete(with error: Error, at index: Int = 0) {
@@ -191,7 +193,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         
         func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(
-                url: messages[index].url,
+                url: requestedURLs[index],
                 statusCode: code,
                 httpVersion: nil,
                     headerFields: nil)!
