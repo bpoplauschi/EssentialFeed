@@ -131,6 +131,7 @@ Description Description</string>
                         <connections>
                             <outlet property="dataSource" destination="nwe-1B-4Bb" id="1DW-5J-tpN"/>
                             <outlet property="delegate" destination="nwe-1B-4Bb" id="IrM-oR-3Rl"/>
+                            <outlet property="prefetchDataSource" destination="nwe-1B-4Bb" id="UGU-4R-ggw"/>
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="qKt-Du-mpe">
