@@ -36,6 +36,7 @@
 		80275C5225E4DE0100BDA480 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80275C5125E4DE0100BDA480 /* ErrorView.swift */; };
 		80275C7525E4E18A00BDA480 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80275C7425E4E18A00BDA480 /* FeedErrorViewModel.swift */; };
 		80275C8925E4E1E900BDA480 /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80275C8825E4E1E900BDA480 /* UIRefreshControl+Helpers.swift */; };
+		80275CB025E4E76800BDA480 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80275CB225E4E76800BDA480 /* Feed.strings */; };
 		803D08AA259E3B5B0047D0DA /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E30BD25963C360091BC63 /* FeedImage.swift */; };
 		803D33CC25BCA12F00172260 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D33CB25BCA12F00172260 /* LocalFeedLoader.swift */; };
 		803D33D425BCA1BA00172260 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D33D325BCA1BA00172260 /* FeedStore.swift */; };
@@ -159,6 +160,9 @@
 		80275C5125E4DE0100BDA480 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		80275C7425E4E18A00BDA480 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		80275C8825E4E1E900BDA480 /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
+		80275CB125E4E76800BDA480 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
+		80275CB925E4E76B00BDA480 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
+		80275CBA25E4E76C00BDA480 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
 		803D33CB25BCA12F00172260 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		803D33D325BCA1BA00172260 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		803D33DB25BCB0AA00172260 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				80275C4325E4DB1700BDA480 /* FeedPresenterTests.swift */,
+				80275CB225E4E76800BDA480 /* Feed.strings */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -784,6 +789,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80275CB025E4E76800BDA480 /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,6 +972,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		80275CB225E4E76800BDA480 /* Feed.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80275CB125E4E76800BDA480 /* en */,
+				80275CB925E4E76B00BDA480 /* el */,
+				80275CBA25E4E76C00BDA480 /* pt-BR */,
+			);
+			name = Feed.strings;
+			sourceTree = "<group>";
+		};
 		806D96A125E264DF0071FCF3 /* Feed.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
