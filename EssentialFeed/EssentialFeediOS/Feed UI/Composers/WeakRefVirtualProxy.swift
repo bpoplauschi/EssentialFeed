@@ -5,6 +5,7 @@
 //  Created by Bogdan Poplauschi on 21/02/2021.
 //
 
+import EssentialFeed
 import UIKit
 
 final class WeakRefVirtualProxy<T: AnyObject> {
