@@ -71,7 +71,6 @@
 		808F296C25DDA3B1005E2F33 /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F296B25DDA3B1005E2F33 /* FeedImageCell+TestHelpers.swift */; };
 		808F297A25DDA3F2005E2F33 /* FeedUIIntegrationTests+LoaderSpy.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F297925DDA3F2005E2F33 /* FeedUIIntegrationTests+LoaderSpy.swift .swift */; };
 		808F298225DDA42A005E2F33 /* FeedUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F298125DDA42A005E2F33 /* FeedUIIntegrationTests+Assertions.swift */; };
-		808F29A525DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F29A425DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift */; };
 		808F29BB25DDAAA6005E2F33 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F29BA25DDAAA6005E2F33 /* FeedImageCellController.swift */; };
 		808F29CA25DDAEEE005E2F33 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F29C925DDAEEE005E2F33 /* FeedUIComposer.swift */; };
 		80AD563C25B6C8E60092116D /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD563B25B6C8E60092116D /* CacheFeedUseCaseTests.swift */; };
@@ -86,6 +85,7 @@
 		80BF630225D50FAC00880EBD /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BF62F925D50FAB00880EBD /* EssentialFeediOS.framework */; };
 		80CDBB6D25A201CE0016EB22 /* XCTestCase+MemoryLeakTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDBB6C25A201CE0016EB22 /* XCTestCase+MemoryLeakTracker.swift */; };
 		80CDBB7325A2115D0016EB22 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDBB7225A2115D0016EB22 /* URLSessionHTTPClient.swift */; };
+		80D59B9225EA584900D4C28B /* FeedImageDataLoader.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F29A425DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift */; };
 		80FEBC4725C15AC2004A07F3 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEBC4625C15AC2004A07F3 /* FeedCacheTestHelpers.swift */; };
 		80FEBC4C25C15BB3004A07F3 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEBC4B25C15BB3004A07F3 /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
@@ -324,6 +324,7 @@
 			children = (
 				434E30BD25963C360091BC63 /* FeedImage.swift */,
 				434E30C225963CB90091BC63 /* FeedLoader.swift */,
+				808F29A425DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -517,14 +518,6 @@
 			path = "Feed UI";
 			sourceTree = "<group>";
 		};
-		808F29A325DDA5B1005E2F33 /* Feed Image Loader */ = {
-			isa = PBXGroup;
-			children = (
-				808F29A425DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift */,
-			);
-			path = "Feed Image Loader";
-			sourceTree = "<group>";
-		};
 		808F29C825DDAEE1005E2F33 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,7 +549,6 @@
 			isa = PBXGroup;
 			children = (
 				80BF62FC25D50FAB00880EBD /* Info.plist */,
-				808F29A325DDA5B1005E2F33 /* Feed Image Loader */,
 				808F299525DDA52B005E2F33 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
@@ -841,6 +833,7 @@
 				80BAB0E925E4EA2D00121495 /* FeedErrorViewModel.swift in Sources */,
 				80BAB0DB25E4EA0800121495 /* FeedLoadingViewModel.swift in Sources */,
 				80BAB11E25E4EED100121495 /* FeedImagePresenter.swift in Sources */,
+				80D59B9225EA584900D4C28B /* FeedImageDataLoader.swift .swift in Sources */,
 				8012660325C7F91100FD8DDB /* ManagedFeedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,7 +887,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808F29A525DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift in Sources */,
 				80275C5225E4DE0100BDA480 /* ErrorView.swift in Sources */,
 				80275C8925E4E1E900BDA480 /* UIRefreshControl+Helpers.swift in Sources */,
 				805CCA4625D822EA00A10D97 /* UIView+Shimmering.swift in Sources */,
