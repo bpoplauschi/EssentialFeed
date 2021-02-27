@@ -91,7 +91,7 @@
 		80CDBB7325A2115D0016EB22 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDBB7225A2115D0016EB22 /* URLSessionHTTPClient.swift */; };
 		80CFBEDC25EA6208001E5B22 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFBEDB25EA6208001E5B22 /* HTTPURLResponse+StatusCode.swift */; };
 		80CFBEEB25EA626B001E5B22 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFBEEA25EA626B001E5B22 /* URLProtocolStub.swift */; };
-		80CFBF0525EA91EC001E5B22 /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFBF0425EA91EC001E5B22 /* LocalFeedImageDataLoaderTests.swift */; };
+		80CFBF0525EA91EC001E5B22 /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CFBF0425EA91EC001E5B22 /* LoadFeedImageDataFromCacheUseCaseTests.swift */; };
 		80D59B9225EA584900D4C28B /* FeedImageDataLoader.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F29A425DDA5C0005E2F33 /* FeedImageDataLoader.swift .swift */; };
 		80D59BA025EA58A400D4C28B /* LoadFeedImageDataFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D59B9F25EA58A400D4C28B /* LoadFeedImageDataFromRemoteUseCaseTests.swift */; };
 		80FEBC4725C15AC2004A07F3 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEBC4625C15AC2004A07F3 /* FeedCacheTestHelpers.swift */; };
@@ -226,7 +226,7 @@
 		80CDBB7225A2115D0016EB22 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		80CFBEDB25EA6208001E5B22 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		80CFBEEA25EA626B001E5B22 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
-		80CFBF0425EA91EC001E5B22 /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		80CFBF0425EA91EC001E5B22 /* LoadFeedImageDataFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedImageDataFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		80D59B9F25EA58A400D4C28B /* LoadFeedImageDataFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedImageDataFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		80FEBC4625C15AC2004A07F3 /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
 		80FEBC4B25C15BB3004A07F3 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
@@ -571,7 +571,7 @@
 				801265CD25C7EEF200FD8DDB /* CoreDataFeedStoreTests.swift */,
 				43630D2125C5AC60006CE4B3 /* FeedStoreSpecs.swift */,
 				807A23FC25C086FF00C05ED2 /* LoadFeedFromCacheUseCaseTests.swift */,
-				80CFBF0425EA91EC001E5B22 /* LocalFeedImageDataLoaderTests.swift */,
+				80CFBF0425EA91EC001E5B22 /* LoadFeedImageDataFromCacheUseCaseTests.swift */,
 				801396D425C1575500E53220 /* ValidateFeedCacheUseCaseTests.swift */,
 			);
 			path = "Feed Cache";
@@ -896,7 +896,7 @@
 				43630D3425C5B0AA006CE4B3 /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				80BAB0FC25E4EB5700121495 /* FeedLocalizationTests.swift in Sources */,
 				80CDBB6D25A201CE0016EB22 /* XCTestCase+MemoryLeakTracker.swift in Sources */,
-				80CFBF0525EA91EC001E5B22 /* LocalFeedImageDataLoaderTests.swift in Sources */,
+				80CFBF0525EA91EC001E5B22 /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */,
 				8095F6EC25EA5F6A0036CF83 /* HTTPClientSpy.swift in Sources */,
 				807A240325C0882800C05ED2 /* FeedStoreSpy.swift in Sources */,
 				80FEBC4C25C15BB3004A07F3 /* SharedTestHelpers.swift in Sources */,
