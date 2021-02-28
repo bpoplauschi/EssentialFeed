@@ -32,7 +32,6 @@ extension LocalFeedImageDataLoader {
 }
 
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
-    
     public typealias LoadResult = FeedImageDataLoader.Result
     
     public enum LoadError: Error {

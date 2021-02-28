@@ -8,7 +8,6 @@
 import UIKit
 
 public final class ErrorView: UIView {
-    
     @IBOutlet private var label: UILabel!
     
     public var message: String? {

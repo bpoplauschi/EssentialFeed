@@ -37,11 +37,12 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
     }
     
-    func test_getFromURL_failsOnRequestError() throws {
+    func test_getFromURL_failsOnRequestError() {
         let requestError = anyNSError()
-        let receivedError = try XCTUnwrap(resultErrorFor((data: nil, response: nil, error: requestError)))
-        XCTAssertEqual((receivedError as NSError).domain, requestError.domain)
-        XCTAssertEqual((receivedError as NSError).code, requestError.code)
+        
+        let receivedError = resultErrorFor((data: nil, response: nil, error: requestError))
+        
+        XCTAssertEqual(receivedError as NSError?, requestError)
     }
     
     func test_getFromURL_failsOnAllInvalidRepresentationCases() {
@@ -95,7 +96,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         
         switch result {
         case let .success((data, response)):
-            return (data: data, response: response)
+            return (data, response)
         default:
             XCTFail("Expected success, got \(result) instead", file: file, line: line)
             return nil
@@ -130,6 +131,11 @@ class URLSessionHTTPClientTests: XCTestCase {
         return receivedResult
     }
     
-    private func nonHTTPURLResponse() -> URLResponse { URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil) }
-    private func anyHTTPURLResponse() -> HTTPURLResponse { HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)! }
+    private func anyHTTPURLResponse() -> HTTPURLResponse { 
+        HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+    }
+    
+    private func nonHTTPURLResponse() -> URLResponse {
+        URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+    }
 }

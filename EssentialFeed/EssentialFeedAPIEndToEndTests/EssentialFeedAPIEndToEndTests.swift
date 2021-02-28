@@ -9,6 +9,7 @@ import EssentialFeed
 import XCTest
 
 class EssentialFeedAPIEndToEndTests: XCTestCase {
+
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData() {
         switch getFeedResult() {
         case let .success(imageFeed)?:
@@ -21,8 +22,10 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
             XCTAssertEqual(imageFeed[5], expectedImage(at: 5))
             XCTAssertEqual(imageFeed[6], expectedImage(at: 6))
             XCTAssertEqual(imageFeed[7], expectedImage(at: 7))
+        
         case let .failure(error)?:
             XCTFail("Expected successful feed result, got \(error) instead")
+        
         default:
             XCTFail("Expected successful feed result, got no result instead")
         }
@@ -54,7 +57,6 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
             receivedResult = result
             exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 5.0)
         
         return receivedResult
@@ -65,7 +67,6 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         trackForMemoryLeaks(loader, file: file, line: line)
         
         let exp = expectation(description: "Wait for load completion")
-        
         let url = feedTestServerURL.appendingPathComponent("73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
         
         var receivedResult: FeedImageDataLoader.Result?
@@ -93,8 +94,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
             id: id(at: index),
             description: description(at: index),
             location: location(at: index),
-            url: imageURL(at: index)
-        )
+            url: imageURL(at: index))
     }
     
     private func id(at index: Int) -> UUID {

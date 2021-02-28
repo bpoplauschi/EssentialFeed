@@ -31,7 +31,6 @@ public final class FeedImagePresenter<View: FeedImageView, Image> where View.Ima
                         shouldRetry: false))
     }
     
-    
     public func didFinishLoadingImageData(with data: Data, for model: FeedImage) {
         let image = imageTransformer(data)
         view.display(FeedImageViewModel(

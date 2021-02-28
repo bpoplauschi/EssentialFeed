@@ -117,7 +117,6 @@ extension FeedStoreSpecs where Self: XCTestCase {
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
-
     @discardableResult
     func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache insertion")
@@ -157,8 +156,8 @@ extension FeedStoreSpecs where Self: XCTestCase {
                 break
                 
             case let (.success(.some(expected)), .success(.some(retrieved))):
-                XCTAssertEqual(expected.feed, retrieved.feed, file: file, line: line)
-                XCTAssertEqual(expected.timestamp, retrieved.timestamp, file: file, line: line)
+                XCTAssertEqual(retrieved.feed, expected.feed, file: file, line: line)
+                XCTAssertEqual(retrieved.timestamp, expected.timestamp, file: file, line: line)
                 
             default:
                 XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)

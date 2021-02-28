@@ -14,7 +14,6 @@ struct FeedImageViewModel {
 }
 
 final class FeedViewController: UITableViewController {
-    
     private var feed = [FeedImageViewModel]()
     
     override func viewWillAppear(_ animated: Bool) {

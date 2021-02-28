@@ -8,7 +8,6 @@
 import Foundation
 
 public final class LocalFeedLoader {
-    
     private let store: FeedStore
     private let currentDate: () -> Date
     
@@ -36,7 +35,7 @@ extension LocalFeedLoader {
     }
     
     private func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
-        self.store.insert(feed.toLocal(), timestamp: self.currentDate()) { [weak self] insertionResult in
+        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] insertionResult in
             guard self != nil else { return }
             
             completion(insertionResult)
@@ -66,7 +65,6 @@ extension LocalFeedLoader: FeedLoader {
 }
 
 extension LocalFeedLoader {
-    
     public typealias ValidationResult = Result<Void, Error>
     
     public func validateCache(completion: @escaping (ValidationResult) -> Void) {

@@ -136,6 +136,9 @@ class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
             case let (.success(receivedData), .success(expectedData)):
                 XCTAssertEqual(receivedData, expectedData, file: file, line: line)
                 
+            case let (.failure(receivedError as RemoteFeedImageDataLoader.Error), .failure(expectedError as RemoteFeedImageDataLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                
             case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
                 
