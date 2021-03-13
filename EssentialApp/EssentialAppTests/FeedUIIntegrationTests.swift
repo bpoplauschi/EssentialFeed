@@ -7,6 +7,7 @@
 
 import EssentialFeed
 import EssentialFeediOS
+import EssentialApp
 import UIKit
 import XCTest
 
