@@ -46,7 +46,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
         let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
-        
         let localImageLoader = LocalFeedImageDataLoader(store: store)
         
         window?.rootViewController = UINavigationController(
@@ -61,6 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     fallback: FeedImageDataLoaderCacheDecorator(
                         decoratee: remoteImageLoader,
                         cache: localImageLoader))))
+        
         window?.makeKeyAndVisible()
     }
     
