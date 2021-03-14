@@ -25,7 +25,7 @@ class HTTPClientStub: HTTPClient {
     }
 }
 
-extension HTTPClient {
+extension HTTPClientStub {
     static var offline: HTTPClientStub {
         HTTPClientStub(stub: { _ in .failure(NSError(domain: "offline", code: 0)) })
     }
